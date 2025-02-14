@@ -86,7 +86,7 @@ as
         sum(iv.total) as total_spending, 
         e.firstName as SupportRep
 	from customer c
-    join employee e on e.employeeId = c.supportRepId
+    join employee e on e.reportTo = c.supportRepId
     join invoice iv on iv.customerId = c.customerId
     group by iv.customerId
     having sum(iv.total) > 40;
